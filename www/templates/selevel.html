@@ -1,0 +1,20 @@
+<ion-view hide-tabs>
+<ion-nav-title ng-bind-html="data.level_title"></ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/elevels" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<div class="row flex_wrap">
+<div class="col col-50 col-res-33" ng-repeat="item in exercises" ng-if="data.level_id==item.exercise_level">
+<div class="image_1">
+<a href="#/tab/details/{{item.id}}">
+<img src="{{imagesfolder}}/{{item.exercise_image}}">
+<h5 ng-bind-html="item.exercise_title"></h5>
+</a>
+</div>
+</div>
+</div>
+
+</ion-content>
+</ion-view>

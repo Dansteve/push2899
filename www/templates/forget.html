@@ -1,0 +1,46 @@
+<ion-view view-title="Forget Password" hide-nav-bar="true" class="signup_page" hide-tabs>
+<ion-content has-bouncing="false" class="signup_page">
+
+      <div class="row row-center">
+      <div class="center_content">
+
+<div class="text">
+<h4 ng-bind-html="titleforget"></h4>
+</div>
+
+<form name="Form" class="padding" ng-submit="doLogin()" novalidate>
+<div class="list list-inset">
+
+    <label class="item-input">
+    <i class="icon ion-android-mail placeholder-icon"></i>
+    <input type="email" placeholder="{{formEmail}}" ng-model="loginData.username" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-minlength="5" required>
+    </label>
+
+  <button class="button button-block button-outline button-stable" type="submit" ng-disabled="Form.$invalid" style="border-radius: 25px;">{{sendNow}}</button>
+
+  <a href="#/tab/login" class="password"><i class="icon ion-ios-arrow-thin-left"></i> {{Login}} </a>
+
+</div>
+</form>
+
+
+<script id="success.html" type="text/ng-template">
+  <ion-modal-view>
+
+    <ion-content has-bouncing="false" class="internet_status">
+      <div class="row row-center">
+      <div class="padding center_content">
+        <img src="img/success.svg" class="full-image">
+      <h3 ng-bind-html="titleforget"></h3>
+      <p ng-bind-html="succForget"></p>
+        <a class="button button-assertive" ng-click="cancelar()" ng-bind-html="Login">
+        </a>
+      </div>
+    </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-content>
+
+</ion-view>

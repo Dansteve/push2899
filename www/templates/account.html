@@ -1,0 +1,82 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{account}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/home" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+
+<ion-nav-buttons side="right">
+<a ng-click="doLogout()" class="button button-icon icon ion-log-out"></a>
+</ion-nav-buttons>
+
+<ion-content has-bouncing="false">
+
+<div ng-repeat="item in users" ng-if="item.user_id==id_auth">
+<div class="profile">
+  <h1 ng-bind-html="item.user_name"></h1>
+  <p>{{athlete}} {{item.user_date}}</p>
+</div>
+
+<div class="row" style="background: #f8f8f8; text-align: center; text-transform: uppercase;padding: 5px 10px;">
+<div class="col col-50"><span style="font-family: dinbold;display: block;color: #ea2027">{{goal}}</span><span ng-bind-html="item.user_goal"></span></div>
+<div class="col col-50"><span style="font-family: dinbold;display: block;color: #ea2027">{{gender}}</span><span ng-bind-html="item.user_gender"></span></div>
+</div>
+</div>
+
+<a class="item titlerecent" style="margin-bottom: 0;background: #ea2027; color: #ffffff;">
+{{workouts}}
+</a>
+
+<div class="favorites" ng-if="workoutsFavorites.length > 0">
+
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="workout in workoutsFavorites" ng-if="workout.user==id_auth" style="border-bottom: 1px solid #eee;">
+
+<div class="row">
+  <div class="col col-90">
+        <a class="item item-avatar" href="#/tab/wdetails/{{workout.id}}" style="border: none;">
+      <img src="{{imagesfolder}}/{{workout.image}}">
+      <h2 ng-bind-html="workout.title"></h2>
+      <p style="font-size: 11px;text-transform: uppercase;">{{workout.goal}} <span style="padding-right: 3px; padding-left: 3px">-</span> {{workout.duration}}</p>
+    </a>
+
+  </div>
+  <div class="col col-center"><button class="button button-small icon ion-android-close" ng-click="removefavoriteWorkout(workout.id)"></button></div>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="padding" ng-if="workoutsFavorites.length<1">
+          <p class="text-center padding" style="margin: 0;text-transform: uppercase;">Empty</p>
+    </div>
+
+<a class="item titlerecent" style="margin-bottom: 0;background: #ea2027; color: #ffffff;">
+{{recipes}}
+</a>
+
+<div class="favorites" ng-if="dietsFavorites.length > 0">
+
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="recipe in dietsFavorites" ng-if="recipe.user==id_auth" style="border-bottom: 1px solid #eee;">
+
+<div class="row">
+  <div class="col col-90">
+        <a class="item item-avatar" href="#/tab/recipe/{{recipe.id}}" style="border: none;">
+      <img src="{{imagesfolder}}/{{recipe.image}}">
+      <h2 ng-bind-html="recipe.title"></h2>
+      <p style="font-size: 11px;text-transform: uppercase;">{{recipe.category}} <span style="padding-right: 5px;"></span> <i class="ion-ios-flame"></i> {{recipe.calories}} Cal.</p>
+    </a>
+
+  </div>
+  <div class="col col-center"><button class="button button-small icon ion-android-close" ng-click="removefavoriteRecipe(recipe.id)"></button></div>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="padding" ng-if="dietsFavorites.length<1">
+          <p class="text-center padding" style="margin: 0;text-transform: uppercase;">{{empty}}</p>
+    </div>
+
+</ion-content>
+</ion-view>

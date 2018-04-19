@@ -1,0 +1,26 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{day}} 4</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/wdetails/{{data.id}}" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<div class="row flex_wrap">
+<div class="col col-50 col-res-33" ng-repeat="item in exercises" ng-if="data.workout_id == item.workout_id">
+<div class="image_1">
+<a href="#/tab/detday4/{{item.id}}">
+<img src="{{imagesfolder}}/{{item.exercise_image}}">
+<h5 ng-bind-html="item.exercise_title"></h5>
+</a>
+</div>
+</div>
+</div> 
+
+<div class="restday" ng-hide="rests.length>0">
+<h1>{{rest}}</h1>
+<p>{{restPro}}</p>
+<p style="color: #ea2027;">{{restText}}</p>
+</div>
+
+</ion-content>
+</ion-view>

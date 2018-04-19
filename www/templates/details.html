@@ -1,0 +1,79 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{exerciseTitle}}</ion-nav-title>
+<ion-content has-bouncing="false">
+
+      <div class="videogular-container">
+    <videogular vg-plays-inline="true" vg-native-fullscreen="false" vg-theme="config.theme">
+      <vg-media vg-src="data.exercise_video"
+          vg-tracks="config.tracks">
+      </vg-media>
+      <vg-controls>
+                  <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+      <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-playback-button></vg-playback-button>
+      </vg-controls>
+
+      <vg-overlay-play></vg-overlay-play>
+
+      <vg-poster vg-url='coverExercise' class="poster"></vg-poster>´
+    </videogular>
+    </div>
+    
+<div class="row sets" style="padding: 0;background: #fff; padding-top: 15px;    padding-bottom: 5px;">
+  <div class="col-33" style="text-align: center;"><img src="./img/sets.svg" class="full-image" /> <p>{{sets}}</p> <span ng-bind-html="data.exercise_sets"></span></div>
+  <div class="col-33" style="text-align: center;"><img src="./img/reps.svg" class="full-image" /> <p>{{reps}}</p> <span ng-bind-html="data.exercise_reps"></span></div>
+  <div class="col-33" style="text-align: center;"><img src="./img/timer.svg" class="full-image" /> <p>{{rest}}</p> <span ng-bind-html="data.exercise_rest"></span></div>
+</div>
+
+<div class="exercises">
+
+<h1 ng-bind-html="data.exercise_title"></h1>
+<p><b>{{skLevel}} </b><span ng-bind-html="data.level_title"></span></p>
+<p><b>{{Yneed}} </b><span ng-bind-html="data.equipment_title"></span></p>
+<p><b>{{mInvolved}} </b><span ng-bind-html="data.bodypart_title"></span> <span ng-bind-html="bodypart[0].bodypart_title"></span></p>
+
+</div>
+
+
+<script id="tips.html" type="text/ng-template">
+  <ion-modal-view>
+
+    <ion-header-bar class="bar bar-assertive">
+      <h1 class="title">{{tipsTitle}}</h1>
+      <div class="button button-icon" ng-click="tips.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">
+<div class="exercisesText" ng-bind-html="data.exercise_tips"></div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="instructions.html" type="text/ng-template">
+  <ion-modal-view>
+
+    <ion-header-bar class="bar bar-assertive">
+      <h1 class="title">{{instructionsTitle}}</h1>
+      <div class="button button-icon" ng-click="instructions.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">
+<div class="exercisesText" ng-bind-html="data.exercise_instructions"></div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-content>
+
+<div class="tabs">
+  <a class="tab-item" ng-click="tips.show()">
+    {{tipsTitle}}
+  </a>
+  <a class="tab-item" ng-click="instructions.show()">
+    {{instructionsTitle}}
+  </a>
+</div>
+
+</ion-view>

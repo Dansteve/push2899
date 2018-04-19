@@ -1,0 +1,19 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{bodypartsTitle}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/exercises" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<div class="row flex_wrap" style="height: 100%;padding: 0">
+<div class="col col-50" id="banner50" ng-repeat="item in bodyparts" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.80) 90%), url('{{imagesfolder}}/{{item.bodypart_image}}');height: 25%">
+<a href="#/tab/muscle/{{item.id}}">
+<div class="banner-content">
+<h1 ng-bind-html="item.bodypart_title"></h1>
+</div>
+</a>
+</div>
+</div>
+
+</ion-content>
+</ion-view>

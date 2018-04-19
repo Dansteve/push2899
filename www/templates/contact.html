@@ -1,0 +1,58 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{contactTitle}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/settings" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<div class="form">
+
+
+<div class="list">
+
+  <a class="item item-icon-left" ng-click="openEmail(email)">
+    <i class="icon ion-ios-email-outline"></i>
+   {{contactEmail}}
+  </a>
+
+  <a class="item item-icon-left" ng-click="openPhone(phone)">
+    <i class="icon ion-ios-telephone-outline"></i>
+  {{contactPhone}}
+  </a>
+
+  <a class="item item-icon-left" ng-click="openWeb(website)">
+    <i class="icon ion-ios-world-outline"></i>
+    {{contactWebsite}}
+  </a>
+
+  <a class="item item-icon-left" ng-click="openMap(map)">
+  <i class="icon ion-ios-location-outline"></i>
+    {{contactAddress}}
+  </a>
+
+</div>
+</div>
+
+<form name="Form" ng-submit="sendForm()" class="FormClass" novalidate>
+ 
+<div class="list" style="margin-bottom: 0">
+  <label class="item item-input">
+    <input type="text" placeholder="Name" ng-model="contact.name" required>
+  </label>
+  <label class="item item-input">
+    <input type="email" placeholder="Email" ng-model="contact.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+  </label>
+  <label class="item item-input">
+    <textarea placeholder="Your Message" ng-model="contact.message" required></textarea>
+  </label>
+</div>
+
+<div class="padding">
+  <button class="button button-block button-assertive" type="submit" ng-disabled="Form.$invalid">{{FormcontactSend}}</button>
+</div>
+     
+</form>
+
+
+</ion-content>
+</ion-view>

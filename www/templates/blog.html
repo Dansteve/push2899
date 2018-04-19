@@ -1,0 +1,48 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{blog}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/home" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<swiper>
+  <slides>
+    <slide ng-repeat="item in posts | limitTo: 10">
+<div class="blog" style="margin: 0; border-radius: 0;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('{{imagesfolder}}/{{item.post_image}}');box-shadow: none;width: 100%;background-position: center;">
+<div class="blog-description">
+  <span ng-bind-html="item.tag_title"></span>
+  <h2 ng-bind-html="item.post_title"></h2>
+  <p ng-bind-html="item.post_date"></p>
+</div>
+<a class="blog-link" href="#/tab/post/{{item.id}}" ></a>
+</div>
+
+    </slide>
+  </slides>
+  <pagination></pagination>
+</swiper>
+
+<h1 class="titlerecent">{{recentArt}}</h1>
+
+  <div class="row flex_wrap">
+<div class="col col-50 col-res-33" ng-repeat="item in posts | limitTo: 12" ng-if="item.post_featured=='1'">
+          <a href="#/tab/post/{{item.id}}">
+          <div class="card_material min-height">
+            <div class="card_material-image min-height" style="background: #000;border-radius: 6px;">
+              <img src="{{imagesfolder}}/{{item.post_image}}" style="opacity: 0.7">
+              <span class="card_material-title" ng-bind-html="item.post_title" style="font-family: dinlight; font-size: 12px;"></span>
+            </div>
+          </div>
+          </a>
+</div>
+</div>
+
+<h1 class="titlerecent" style="border-bottom: none; border-top: 1px solid #eee;">{{categories}}</h1>
+
+  <a ng-repeat="item in tags" class="item item-icon-right" href="#/tab/ptag/{{item.id}}" style="text-transform: uppercase;">
+    <span ng-bind-html="item.tag_title" style="font-size: 14px"></span>
+    <i class="icon ion-ios-arrow-right" style="color: #eee"></i>
+  </a>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view hide-tabs>
+<ion-nav-title ng-bind-html="data.goal_title"></ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/goals" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<div style="height: 100%;padding: 0">
+<div class="card-3" ng-repeat="item in workouts" ng-if="data.goal_id==item.workout_goal" style="margin: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.80) 90%), url('{{imagesfolder}}/{{item.workout_image}}');-webkit-filter: grayscale(0%); filter: grayscale(0%); background-position: center; border-radius: 0;height: 33.3333%"> 
+  <div class="card-3-description">
+    <span ng-bind-html="item.workout_duration"></span>
+    <h2 ng-bind-html="item.workout_title"></h2>
+    <p ng-bind-html="item.level_title"></p>
+  </div>
+  <a class="card-3-link" href="#/tab/wdetails/{{item.id}}"></a>
+</div>
+</div>
+
+</ion-content>
+</ion-view>

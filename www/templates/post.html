@@ -1,0 +1,102 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{blog}}</ion-nav-title>
+
+<!--<ion-nav-buttons side="right">
+<a class="button button-icon icon ion-android-share-alt" ng-click="share.show()"></a>
+</ion-nav-buttons>-->
+
+<span style="display: none;">{{data.id}}</span>
+
+<ion-content has-bouncing="false">
+
+<div id="banner100" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.90) 95%), url('{{imagesfolder}}/{{data.post_image}}') center center; background-size: cover; height: 33.3333%">
+<a class="sharePost" ng-click="share.show()"><i class="icon ion-android-share-alt"></i></a>
+</div>
+
+<div class="post padding">
+<p ng-bind-html="data.tag_title" class="postag"></p>
+<h1 ng-bind-html="data.post_title"></h1>
+<span ng-bind-html="data.post_date"></span>
+<div ng-bind-html="data.post_description | openLinks" class="textp"></div>
+
+<span class="spancoments" style="font-size: 14px; color: #ea2027; font-family: dinbold;">{{commentsTitle}}</span>
+
+<div class="comments">
+<div class="list card" ng-repeat="item in comentarios" ng-if="data.post_id == item.comment_post">
+
+  <div class="item item-avatar">
+    <ng-letter-avatar  data="{{item.name}}" avatarcustombgcolor="#ea2027" shape="round"></ng-letter-avatar>
+    <h2 ng-bind-html="item.name" style="font-size: 14px; text-transform: uppercase;"></h2>
+    <p ng-bind-html="item.comment_date" style="font-size: 11px; text-transform: uppercase;"></p>
+  </div>
+
+  <div ng-show="item.comment_verified=='1'" class="item item-body" style="padding: 8px 15px;">
+    <p ng-bind-html="item.comment_content" style="margin: 0;font-family: arial;font-size: 12px;"></p>
+  </div>
+  <div ng-hide="item.comment_verified=='1'" class="item item-body" style="padding: 8px 15px;">
+    <p style="margin: 0; font-family: arial; font-size: 12px; font-style: italic;">{{commentReview}}</p>
+  </div>
+
+</div>
+</div>
+
+<a class="button button-block button-assertive button-outline button-small" ng-click="comment.show()" style="text-transform: uppercase;">{{addComment}}</a>
+
+</div>
+
+<script id="share.html" type="text/ng-template">
+  <ion-modal-view>
+
+    <ion-header-bar class="bar bar-header bar-light">
+      <h1 class="title">{{shareTitle}}</h1>
+      <div class="button button-icon" ng-click="share.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false" class="social_share">
+
+      <div class="row row-center">
+      <div class="padding center_content">
+
+        <a ng-click="shareViaFacebook()" class="button icon-left ion-social-facebook button-assertive facebook">Facebook</a>
+        <a ng-click="shareViaTwitter()" class="button icon-left ion-social-twitter button-assertive twitter">Twitter</a>
+        <a ng-click="shareViaWhatsApp()" class="button icon-left ion-social-whatsapp button-assertive whatsapp">WhatsApp</a>
+        <a ng-click="shareViaGoogle()" class="button icon-left ion-social-googleplus button-assertive googleplus">Google Plus</a>
+        <a ng-click="OtherShare()" class="button icon-left ion-android-share-alt button-assertive othershare">Other</a>
+
+      </div>
+    </div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+<script id="comment.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{commentTitle}}</h1>
+      <div class="button button-icon" ng-click="comment.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">   
+
+
+<form name="Form" ng-submit="sendComment()" class="FormClass" novalidate>
+  <label class="item item-input">
+    <textarea placeholder="{{yourComment}}" ng-model="comment.content" ng-trim="false" maxlength="100" required></textarea>
+  </label>
+  <div class="padding" style="color: #666666;">{{commentLimit}} - {{100 - comment.content.length}}</div>
+</div>
+
+<div class="padding">
+  <button class="button button-block button-assertive" type="submit" ng-disabled="Form.$invalid">{{commentTitle}}</button>
+</div>
+     
+</form>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-content>
+</ion-view>

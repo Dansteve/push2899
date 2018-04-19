@@ -1,0 +1,96 @@
+<ion-view>
+<ion-nav-title>{{favoritesTitle}}</ion-nav-title>
+
+<ion-nav-buttons side="right">
+</ion-nav-buttons>
+
+<ion-content has-bouncing="false">
+
+
+<a class="item item_title">
+{{offersTitle}}
+</a>
+
+<div class="favorites" ng-if="favoriteOffers.length > 0">
+
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="favOffer in favoriteOffers" ng-if="favOffer.user==id_user" style="border-bottom: 1px solid #eee;">
+
+<div class="row">
+  <div class="col col-90">
+        <a class="item item-avatar" href="#/tab/offer/{{favOffer.id}}" style="border: none;">
+      <img cache-src="{{imagesfolder}}/{{favOffer.image}}">
+      <h2 ng-bind-html="favOffer.title"></h2>
+    </a>
+
+  </div>
+  <div class="col col-center"><button class="button button-small icon ion-android-close" ng-click="removefavoriteOffer(favOffer.id)"></button></div>
+</div>
+</div>
+</div>
+ 
+</div>
+
+    <div class="padding" ng-if="favoriteOffers.length<1">
+          <p class="text-center padding" style="margin: 0;" ng-bind-html="listEmpty"></p>
+    </div>
+
+
+<a class="item item_title">
+{{placesTitle}}
+</a>
+
+<div class="favorites" ng-if="favoritePlaces.length > 0">
+
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="favPlace in favoritePlaces" ng-if="favPlace.user==id_user" style="border-bottom: 1px solid #eee;">
+
+<div class="row">
+  <div class="col col-90">
+        <a class="item item-avatar" href="#/tab/place/{{favPlace.id}}" style="border: none;">
+      <img cache-src="{{imagesfolder}}/{{favPlace.image}}">
+      <h2 ng-bind-html="favPlace.title"></h2>
+    </a>
+
+  </div>
+  <div class="col col-center"><button class="button button-small icon ion-android-close" ng-click="removefavoritePlace(favPlace.id)"></button></div>
+</div>
+</div>
+</div>
+ 
+</div>
+
+    <div class="padding" ng-if="favoritePlaces.length<1">
+          <p class="text-center padding" style="margin: 0;" ng-bind-html="listEmpty"></p>
+    </div>
+
+<a class="item item_title">
+{{newsTitle}}
+</a>
+
+<div class="favorites" ng-if="favoriteNews.length > 0">
+
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="favPost in favoriteNews" ng-if="favPost.user==id_user" style="border-bottom: 1px solid #eee;">
+
+<div class="row">
+  <div class="col col-90">
+        <a class="item item-avatar" href="#/tab/place/{{favPost.id}}" style="border: none;">
+      <img cache-src="{{imagesfolder}}/{{favPost.image}}">
+      <h2 ng-bind-html="favPost.title"></h2>
+    </a>
+
+  </div>
+  <div class="col col-center"><button class="button button-small icon ion-android-close" ng-click="removefavoritePost(favPost.id)"></button></div>
+</div>
+</div>
+</div>
+ 
+</div>
+
+    <div class="padding" ng-if="favoriteNews.length<1">
+          <p class="text-center padding" style="margin: 0;" ng-bind-html="listEmpty"></p>
+    </div>
+
+</ion-content>
+</ion-view>

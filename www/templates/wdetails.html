@@ -1,0 +1,61 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{workoutTitle}}</ion-nav-title>
+<ion-nav-buttons side="right">
+<a class="button button-icon icon ion-android-star" ng-click="addTofavorite(data)"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false" class="detailworkouts">
+
+<span style="display: none;">{{data.id}}</span>
+<div class="cover" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.55) 50%), url('{{imagesfolder}}/{{data.workout_image}}');">
+<div class="cover-content">
+<h1 ng-bind-html="data.workout_title"></h1>
+<p ng-bind-html="data.workout_duration" style="margin: 0;text-transform:uppercase;"></p>
+</div>
+</div>
+
+<div class="row" style="background: #f8f8f8; text-align: left; text-transform: uppercase; font-size: 13px;    padding: 5px 10px;">
+<div class="col col-50"><span style="font-family: dinbold;display: block;color: #ea2027">{{level}}</span><span ng-bind-html="data.level_title"></span></div>
+<div class="col col-50"><span style="font-family: dinbold;display: block;color: #ea2027">{{goal}}</span><span ng-bind-html="data.goal_title"></span></div>
+</div>
+
+<div class="list" style="text-transform: uppercase;font-size: 13px;">
+
+    <a class="item item-icon-right" href="#/tab/day1/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Mon}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day2/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Tue}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day3/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Wed}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day4/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Thu}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day5/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Fri}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day6/{{data.did}}" style="border:none; border-bottom: 1px solid rgba(0,0,0,.05);padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Sat}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+    <a class="item item-icon-right" href="#/tab/day7/{{data.did}}" style="border:none;padding: 13px 16px; margin-bottom: 1px;">
+      <h2 style="font-size:14px">{{Sun}}</h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+</div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{browseby}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/home" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+
+<ion-content has-bouncing="false" class="workouts">
+
+<div style="height: 100%;margin: 0">
+
+<a href="#/tab/elevels">
+<div class="cover" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.90) 90%), url('img/levels.jpg');height: 33.3333%">
+  <div class="cover-content">
+    <h1>{{levels}}</h1>
+    <p>{{levelsEx}}</p>
+  </div>
+</div>
+</a>
+
+<a href="#/tab/equipments">
+<div class="cover" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.90) 90%), url('img/equipments.jpg');height: 33.3333%">
+  <div class="cover-content">
+    <h1>{{equipments}}</h1>
+    <p>{{equipmentsSub}}</p>
+  </div>
+</div>
+</a>
+
+
+<a href="#/tab/bodyparts">
+<div class="cover" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.90) 90%), url('img/bodyparts.jpg');height: 33.3333%">
+  <div class="cover-content">
+    <h1 style="text-decoration: none;">{{bodyparts}}</h1>
+    <p>{{bodypartsSub}}</p>
+  </div>
+</div>
+</a>
+
+</div>
+
+</ion-content>
+</ion-view>

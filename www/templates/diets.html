@@ -1,0 +1,63 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{recipes}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/home" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+
+<swiper>
+  <slides>
+    <slide ng-repeat="item in diets | limitTo: 10">
+<div class="diet" style="margin: 0; border-radius: 0;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('{{imagesfolder}}/{{item.diet_image}}');box-shadow: none;width: 100%;background-position: center;">
+<div class="diet-category">{{item.category_title}}</div>
+<div class="diet-description">
+  <h2 ng-bind-html="item.diet_title"></h2>
+  <p>{{servings}} {{item.diet_servings}} | {{cookTime}} {{item.diet_time}}</p>
+</div>
+<a class="diet-link" href="#/tab/recipe/{{item.id}}" ></a>
+</div>
+
+    </slide>
+  </slides>
+  <pagination></pagination>
+</swiper>
+
+
+
+  <div class="row flex_wrap">
+<div class="col col-50 col-res-33" ng-repeat="item in categories">
+          <a href="#/tab/dcategory/{{item.id}}">
+          <div class="card_material min-height">
+            <div class="card_material-image min-height" style="background: #000;border-radius: 6px;">
+              <img src="{{imagesfolder}}/{{item.category_image}}" style="opacity: 0.7">
+              <span class="card_material-title" ng-bind-html="item.category_title"></span>
+            </div>
+          </div>
+          </a>
+</div>
+</div>
+
+
+<h1 class="titlerecent" style="border-top: 1px solid #eee;">{{featRecipes}}</h1>
+
+<div class="favorites">
+  <div class="row flex_wrap" style="margin-top: 0px;padding-top: 0">
+<div class="col col-100 col-res-50" ng-repeat="item in diets" ng-if="item.diet_featured=='1'" style="border-bottom: 1px solid #eee;padding: 0">
+
+<div class="row">
+  <div class="col">
+        <a class="item item-avatar" href="#/tab/recipe/{{item.id}}" style="border: none;">
+      <img src="{{imagesfolder}}/{{item.diet_image}}">
+      <h2 ng-bind-html="item.diet_title"></h2>
+      <p style="font-size: 11px;text-transform: uppercase;">{{item.category_title}} <span style="padding-right: 5px;"></span> <i class="ion-ios-flame"></i> {{item.diet_calories}} {{cal}}</p>
+    </a>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+</ion-content>
+</ion-content>
+</ion-view>

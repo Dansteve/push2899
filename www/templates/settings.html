@@ -1,0 +1,90 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{settingsTitle}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/home" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false" class="settings">
+
+<div class="list">
+
+  <a class="item" ng-click="about.show()">
+    <i class="icon ion-ios-help-outline"></i>
+    {{aboutusTitle}}
+  </a>
+
+  <a class="item" href="#/tab/contact">
+    <i class="icon ion-ios-chatboxes-outline"></i>
+    {{contactTitle}}
+  </a>
+
+  <a class="item" ng-click="openMarket(market)">
+   <i class="icon ion-ios-star-outline"></i>
+    {{rateapp}}
+  </a>
+
+  <a class="item" ng-click="terms.show()">
+  <i class="icon ion-ios-bookmarks-outline"></i>
+    {{termsTitle}}
+  </a>
+
+  <a class="item" ng-click="policy.show()">
+  <i class="icon ion-ios-eye-outline"></i>
+    {{privacyTitle}}
+  </a>
+
+</div>
+
+
+<script id="about.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{aboutusTitle}}</h1>
+      <div class="button button-icon" ng-click="about.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">   
+
+      <div>
+<div ng-bind-html="strings[0].st_aboutus" class="padding" style="font-size: 16px"></div>
+</div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="terms.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{termsTitle}}</h1>
+      <div class="button button-icon" ng-click="terms.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">   
+
+      <div>
+<div ng-bind-html="strings[0].st_termsofservice" class="padding" style="font-size: 16px"></div>
+</div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="policy.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{privacyTitle}}</h1>
+      <div class="button button-icon" ng-click="policy.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">   
+
+      <div>
+<div ng-bind-html="strings[0].st_privacypolicy" class="padding" style="font-size: 16px"></div>
+</div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,13 @@
+{
+  "name": "date",
+  "_cacheHeaders": {
+    "Last-Modified": "Tue, 20 Nov 2007 01:34:28 GMT",
+    "Content-Length": "25809",
+    "Content-Type": "text/plain; charset=us-ascii",
+    "Content-Disposition": "attachment; filename=\"date.js\""
+  },
+  "main": "index.js",
+  "_source": "https://datejs.googlecode.com/files/date.js",
+  "_target": "*",
+  "_originalSource": "https://datejs.googlecode.com/files/date.js"
+}

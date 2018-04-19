@@ -10,5 +10,19 @@
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "ionic": "3.20.0"
+  },
+  "dependencies": {
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-network-information": "^2.0.1",
+    "cordova-plugin-x-socialsharing": "git+https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+    "onesignal-cordova-plugin": "^2.3.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-x-socialsharing": {},
+      "onesignal-cordova-plugin": {}
+    }
   }
 }

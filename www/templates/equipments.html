@@ -1,0 +1,24 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{equipmentsTitle}}</ion-nav-title>
+<ion-nav-buttons side="left">
+<a href="#/tab/exercises" class="button button-icon icon ion-ios-arrow-left"></a>
+</ion-nav-buttons>
+<ion-content has-bouncing="false" class="categories">
+
+<div class="row flex_wrap" style="padding: 0">
+<div class="col col-res-50" ng-repeat="item in equipments" style="    padding-bottom: 0;">
+<div class="list">
+
+    <a class="item item-avatar item-icon-right" href="#/tab/machine/{{item.id}}" style="border:none; border-bottom: 1px solid #ddd">
+      <img src="{{imagesfolder}}/{{item.equipment_image}}" style="border-radius: 0;">
+      <h2 ng-bind-html="item.equipment_title" style="    text-transform: uppercase;padding-top: 8px"></h2>
+      <i class="icon ion-ios-arrow-right" style="color: #ddd"></i>
+    </a>
+
+</div>
+
+</div>
+</div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,58 @@
+<ion-view view-title="Log In" hide-nav-bar="true" hide-tabs>
+<ion-content has-bouncing="false" class="signup_page">
+
+      <div class="row row-center">
+      <div class="center_content">
+
+<div class="text">
+<h4 ng-bind-html="welcome"></h4>
+</div>
+
+<form name="Form" class="padding" ng-checked="checked()" ng-submit="doLogin()" novalidate>
+<div class="list list-inset">
+
+    <label class="item-input">
+    <i class="icon ion-android-mail placeholder-icon"></i>
+    <input type="email" placeholder="{{formEmail}}" ng-model="loginData.username" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-minlength="5" required>
+    </label>
+
+    <label class="item-input">
+    <i class="icon ion-locked placeholder-icon"></i>
+    <input type="password" placeholder="{{formPassword}}" ng-model="loginData.password" required>
+    </label>
+
+<ul class="list" style="margin-bottom: 15px">
+
+  <li class="item item-toggle" style="background: transparent; color: #fff;border: none;">
+     <span class="remPass" ng-bind-html="remPass"></span>
+     <label class="toggle toggle-balanced">
+       <input type="checkbox" ng-model="user.isChecked" ng-change="insertinvited(user)" ng-click="deschequear()" ng-checked="{{estachequeado}}">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+</ul>
+
+  <button class="button button-block button-outline button-stable" type="submit" ng-disabled="Form.$invalid">{{Login}}</button>
+
+</div>
+</form>
+
+<a href="#/tab/forget" class="password" ng-bind-html="forget"></a>
+
+
+</div>
+</div>
+
+</ion-content>
+
+<a href="#/tab/signup">
+  <ion-footer-bar class="signup-footer">
+  <span class="create" ng-bind-html="AccCreate"></span>
+</ion-footer-bar>
+</a>
+
+
+</ion-view>

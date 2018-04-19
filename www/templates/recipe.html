@@ -1,0 +1,87 @@
+<ion-view hide-tabs>
+<ion-nav-title>{{singleRecipe}}</ion-nav-title>
+
+<ion-nav-buttons side="right">
+<a class="button button-icon icon ion-android-share-alt" ng-click="share.show()"></a>
+<a class="button button-icon icon ion-android-star" ng-click="addTofavorite(data)"></a>
+</ion-nav-buttons>
+
+<span style="display: none;">{{data.id}}</span>
+
+<ion-content has-bouncing="false">
+
+<div id="banner100" style="background-image: url('{{imagesfolder}}/{{data.diet_image}}');height: 33.3333%">
+<div class="banner-content">
+<h1>{{servings}} {{data.diet_servings}}</h1>
+<h1>{{cookTime}} {{data.diet_time}}</h1>
+</div>
+</div>
+
+<div class="recipedetails">
+<div class="row" style="background: #f8f8f8; font-size: 16px;padding: 10px 8px;text-align: center;">
+	<div class="col col-25">{{data.diet_calories}} <span>{{calories}}</span></div>
+	<div class="col col-25">{{data.diet_protein}} <span>{{protein}}</span></div>
+	<div class="col col-25">{{data.diet_fat}} <span>{{fat}}</span></div>
+	<div class="col col-25">{{data.diet_carbs}} <span>{{carbs}}</span></div>
+</div>
+
+<div class="padding">
+<h3 ng-bind-html="data.diet_title" style="font-size: 16px; text-transform: uppercase;"></h3>
+<p ng-bind-html="data.diet_description | limitext:true:130:' ...'" class="textp"></p>
+<a ng-click="modal.show()">{{readMore}}</a>
+</div>
+<h1 id="titlerecipe">{{ingredients}}</h1>
+<div class="padding">
+<div ng-bind-html="data.diet_ingredients" class="textp"></div>
+</div>
+<h1 id="titlerecipe">{{directions}}</h1>
+<div class="padding">
+<div ng-bind-html="data.diet_directions" class="textp"></div>
+</div>
+</div>
+
+<script id="modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{description}}</h1>
+      <div class="button button-icon" ng-click="modal.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content>   
+
+      <div>
+<div ng-bind-html="data.diet_description" class="padding" style="font-size: 16px"></div>
+</div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="share.html" type="text/ng-template">
+  <ion-modal-view>
+
+    <ion-header-bar class="bar bar-header bar-light">
+      <h1 class="title">{{shareRecipe}}</h1>
+      <div class="button button-icon" ng-click="share.hide()"><span class="icon ion-android-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false" class="social_share">
+
+      <div class="row row-center">
+      <div class="padding center_content">
+
+        <a ng-click="shareViaFacebook()" class="button icon-left ion-social-facebook button-assertive facebook">Facebook</a>
+        <a ng-click="shareViaTwitter()" class="button icon-left ion-social-twitter button-assertive twitter">Twitter</a>
+        <a ng-click="shareViaWhatsApp()" class="button icon-left ion-social-whatsapp button-assertive whatsapp">WhatsApp</a>
+        <a ng-click="shareViaGoogle()" class="button icon-left ion-social-googleplus button-assertive googleplus">Google Plus</a>
+        <a ng-click="OtherShare()" class="button icon-left ion-android-share-alt button-assertive othershare">Other</a>
+
+      </div>
+    </div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view hide-nav-bar="true" hide-tabs>
+
+<ion-content has-bouncing="false" class="internet_status">
+
+<div class="row row-center">
+      <div class="padding center_content">
+        <img src="img/nointernet.svg" class="full-image">
+      <h3 ng-bind-html="conMess"></h3>
+      <p ng-bind-html="conSubMess"></p>
+        <a class="button button-assertive">
+        {{conTry}}
+        </a>
+      </div>
+    </div>
+
+</ion-content>
+</ion-view>
